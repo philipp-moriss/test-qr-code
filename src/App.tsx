@@ -130,9 +130,6 @@ function App() {
                   <div className="qr-code">
                     <div className="qr-placeholder">✅</div>
                     <p>QR-код успешно отсканирован</p>
-                    <div>
-                      {JSON.stringify(scannedData)}
-                    </div>
                   </div>
                 </div>
 
