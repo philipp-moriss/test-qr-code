@@ -40,10 +40,10 @@ function App() {
             scannerRef.current = null;
           }
         } catch (error) {
-          console.error('Ошибка при парсинге QR-кода:', error);
+          console.error('Error parsing QR code:', error);
         }
       }, (error) => {
-        console.log('Ошибка сканирования:', error);
+        console.log('Scanning error:', error);
       });
     }
 
@@ -70,7 +70,7 @@ function App() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('ru-RU', {
+    return date.toLocaleDateString('en-US', {
       day: '2-digit',
       month: '2-digit',
       year: '2-digit'
@@ -96,10 +96,10 @@ function App() {
             <div className="scan-section">
               <div className="scan-card">
                 <div className="scan-icon">📷</div>
-                <h2>Сканировать QR-код</h2>
-                <p>Наведите камеру на QR-код для получения информации о билете</p>
+                <h2>Scan QR Code</h2>
+                <p>Point your camera at the QR code to get ticket information</p>
                 <button className="scan-button" onClick={startScanning}>
-                  Начать сканирование
+                  Start Scanning
                 </button>
               </div>
             </div>
@@ -108,10 +108,10 @@ function App() {
           {isScanning && (
             <div className="scanner-section">
               <div className="scanner-card">
-                <h2>Сканирование QR-кода</h2>
+                <h2>QR Code Scanning</h2>
                 <div id="qr-reader" ref={scannerContainerRef}></div>
                 <button className="stop-button" onClick={stopScanning}>
-                  Остановить сканирование
+                  Stop Scanning
                 </button>
               </div>
             </div>
@@ -129,7 +129,7 @@ function App() {
                 <div className="qr-code-section">
                   <div className="qr-code">
                     <div className="qr-placeholder">✅</div>
-                    <p>QR-код успешно отсканирован</p>
+                    <p>QR code successfully scanned</p>
                   </div>
                 </div>
 
@@ -142,23 +142,23 @@ function App() {
                 </div>
 
                 <div className="user-info">
-                  <h3>Информация о пользователе:</h3>
+                  <h3>User Information:</h3>
                   <div className="info-item">
-                    <strong>Имя:</strong> {scannedData.userName}
+                    <strong>Name:</strong> {scannedData.userName}
                   </div>
                   <div className="info-item">
                     <strong>Email:</strong> {scannedData.userEmail}
                   </div>
                   <div className="info-item">
-                    <strong>ID пользователя:</strong> {scannedData.userId}
+                    <strong>User ID:</strong> {scannedData.userId}
                   </div>
                   <div className="info-item">
-                    <strong>ID события:</strong> {scannedData.eventId}
+                    <strong>Event ID:</strong> {scannedData.eventId}
                   </div>
                 </div>
 
                 <button className="join-group-button" onClick={startScanning}>
-                  Сканировать еще один QR-код
+                  Scan Another QR Code
                 </button>
               </div>
             </div>
