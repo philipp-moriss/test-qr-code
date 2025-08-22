@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 interface QRCodeData {
